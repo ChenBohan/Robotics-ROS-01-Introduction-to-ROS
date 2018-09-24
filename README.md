@@ -1,5 +1,5 @@
 # Robotics-ROS-01-Introduction-to-ROS
-Udacity Self-Driving Car Engineer Nanodegree: Introduction to ROS
+Udacity Self-Driving Car Engineer Nanodegree: Introduction to ROS & Packages & Catkin workspace
 
 ## Source the ROS Environment
 
@@ -104,3 +104,65 @@ Sometimes it may be useful to look at a topic’s published messages in real tim
 ```bash
 rostopic echo /turtle1/cmd_vel
 ```
+
+## Catkin Workspaces
+
+### Create a Catkin Workspace
+
+
+First, create the top level catkin workspace directory and a sub-directory named src. 
+
+The top level directory’s name is arbitrary, but is often called catkin_ws.
+
+Next, navigate to the src directory.
+
+Now you can initialize the catkin workspace.
+
+Return to the top level directory, and build the workspace.
+
+```bash
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+cd ~/catkin_ws
+catkin_make
+```
+
+### Add a Package
+
+Cloning the simple_arm Package
+
+```bash
+cd ~/catkin_ws/src
+git clone https://github.com/udacity/simple_arm_01.git simple_arm
+```
+
+Building the simple_arm package
+
+```bash
+cd ~/catkin_ws
+catkin_make
+```
+
+Installing Missing Packages Using apt-get
+
+```bash
+sudo apt-get install ros-kinetic-controller-manager
+```
+
+### Roslaunchroslaunch allows you to do the following
+
+``roslaunch`` allows you to do the following
+- Launch ROS Master and multiple nodes with one simple command
+- Set default parameters on the parameter server
+- Automatically re-spawn processes that have died
+
+To use roslaunch, you must first make sure that your workspace has been built, and sourced.
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+roslaunch simple_arm robot_spawn.launch
+```
+

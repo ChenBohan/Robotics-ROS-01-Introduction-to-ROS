@@ -166,3 +166,13 @@ source devel/setup.bash
 roslaunch simple_arm robot_spawn.launch
 ```
 
+### Rosdep
+
+ROS packages have two different types of dependencies: build dependencies, and run dependencies. 
+
+The rosdep tool will check for a package's missing dependencies, download them, and install them.
+
+```bash
+rosdep check simple_arm
+rosdep install -i simple_arm
+```
